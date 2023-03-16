@@ -13,15 +13,17 @@ export function Header() {
     return (
         <Container>
             <div className='navContainer'>
-                <span>logo</span>
+                <div className='containerToggle'>
+                    <button className='toggleButton' onClick={toggleMenuIcon}>
+                        {
+                            menuActive ?
+                            <IoMdMenu className="menuIcon"/>: 
+                            <IoMdClose className="menuIcon" />
+                        }
+                    </button>
 
-                <button onClick={toggleMenuIcon}>
-                    {
-                        menuActive ?
-                        <IoMdClose className="menuIcon" />:
-                        <IoMdMenu className="menuIcon"/> 
-                    }
-                </button>
+                    <span>logo</span>
+                </div>
 
                 <nav>
                     <ul>
