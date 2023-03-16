@@ -1,4 +1,5 @@
 const prisma = require("../database");
+const bcrypt = require("bcrypt");
 
 module.exports = {
     async read(req, res) {
@@ -28,8 +29,11 @@ module.exports = {
 
             const registerEmail = await prisma.register.findUnique({where: {email}})
             if (registerEmail) return res.status(400).json("Email já está em uso!")
+
+            const passwordHash = await bcrypt.hash(password, 10);
             
-            await prisma.register.create({data: {name, email, password}})
+            await prisma.register.create({data: {name, email, password: passwordHash}})
+
             return res.json("Você foi cadastrado com sucesso");
         } catch (error) {
             console.log(error);

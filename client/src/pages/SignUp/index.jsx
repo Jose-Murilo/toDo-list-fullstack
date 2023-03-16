@@ -1,11 +1,19 @@
 import { useForm } from "react-hook-form";
 import { Container } from "./style";
+import axios from 'axios'
+
 
 export function SignUp() {
+    const API = "http://localhost:3000/register"
+
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     function onSubmit(data) {
         console.log(data);
+
+        axios.post(API, data)
+            .then(res => alert(res.data))
+            .catch(error => alert(error.response.data))
     }
 
     return (

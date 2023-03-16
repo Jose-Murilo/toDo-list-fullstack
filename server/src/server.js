@@ -6,6 +6,9 @@ app.listen(port, console.log(`Server is running on port ${port}`));
 
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors());
+
 const routesRegister = require('./routes/register');
 app.use(routesRegister)
 
