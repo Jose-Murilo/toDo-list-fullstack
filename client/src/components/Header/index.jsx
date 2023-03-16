@@ -2,38 +2,34 @@ import { useState } from 'react';
 import { IoMdMenu } from 'react-icons/io'
 import { IoMdClose } from 'react-icons/io'
 import { NavLink } from 'react-router-dom'
+import { Menu } from '../Menu';
 import { Container } from './style';
 
 export function Header() {
-    const [menuActive, setMenuActive] = useState(false)
-    function toggleMenuIcon() {
-        console.log('a');
-    }
+    const [menuActive, setMenuActive] = useState(false);
+    const toggleMenuIcon = () => setMenuActive(!menuActive);
 
     return (
-        <Container>
-            <div className='navContainer'>
-                <div className='containerToggle'>
-                    <button className='toggleButton' onClick={toggleMenuIcon}>
-                        {
-                            menuActive ?
-                            <IoMdMenu className="menuIcon"/>: 
-                            <IoMdClose className="menuIcon" />
-                        }
-                    </button>
+        <>
+            <Container>
+                <div className='navContainer'>
+                    <div className='containerToggle'>
+                        <button className='toggleButton' onClick={toggleMenuIcon}>
+                            {
+                                menuActive ?
+                                <IoMdMenu className="menuIcon"/>: 
+                                <IoMdClose className="menuIcon" />
+                            }
+                        </button>
 
-                    <span>logo</span>
+                        <span>logo</span>
+                    </div>
                 </div>
+            </Container>
 
-                <nav>
-                    <ul>
-                        <li>
-                            <NavLink>Login</NavLink>
-                            <NavLink>Register</NavLink>
-                        </li>
-                    </ul>
-                </nav>
+            <div onClick={toggleMenuIcon}>
+            {menuActive && <Menu />}
             </div>
-        </Container>
+        </>
     )
 }

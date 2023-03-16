@@ -21,18 +21,19 @@ export const Container = styled.div`
     }
 
     a {
-        color: ${({theme}) => theme.colors.normal};
+        color: ${({theme}) => theme.colors.white};
         padding: .2rem;
         border-radius: .4rem;
         border-bottom: .2rem solid transparent;
         display: flex;
+        text-decoration: none;
         justify-content: center;
         align-items: center;
         gap: .8rem;
     }
     
     a:hover {
-        border-bottom-color: ${({theme}) => theme.colors.normal};
+        border-bottom-color: ${({theme}) => theme.colors.white};
     }
 
     .select {

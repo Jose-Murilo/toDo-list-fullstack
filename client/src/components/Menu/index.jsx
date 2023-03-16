@@ -7,7 +7,7 @@ export function Menu() {
             <nav>
                 <ul>
                     <li>
-                        <NavLink className={({isActive}) => isActive ? "select" : ""} to={'/'}>
+                        <NavLink className={({isActive}) => isActive ? "select" : ""} to={'/login'}>
                             Login
                         </NavLink>
                     </li>

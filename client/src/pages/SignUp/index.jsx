@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Container } from "./style";
 import { Button } from "../../components/Button";
 import axios from 'axios'
+import { Header } from "../../components/Header";
 
 
 export function SignUp() {
@@ -19,6 +20,7 @@ export function SignUp() {
 
     return (
         <Container>
+            <Header />
             <h1>SignUp</h1>
 
             <form onSubmit={handleSubmit(onSubmit)}>
