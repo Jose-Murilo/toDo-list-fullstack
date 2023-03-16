@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Container } from "./style";
+import { Button, Container } from "./style";
 import axios from 'axios'
 
 
@@ -39,7 +39,7 @@ export function SignUp() {
                     {errors.name && <span className="error">Campo obrigatorio!</span>}
                 </section>
 
-                <button>Enviar</button>
+                <Button>Enviar</Button>
             </form>
         </Container>
     )
