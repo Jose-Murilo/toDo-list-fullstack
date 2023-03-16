@@ -28,13 +28,3 @@ export const Container = styled.div`
         border-radius: .8rem;
     }
 `
-
-export const Button = styled.button`
-    width: 100%;
-    padding: .8rem;
-    border-radius: .8rem;
-    border: 0;
-    cursor: pointer;
-    color: white;
-    background: ${({theme}) => theme.colors.greenLight};
-`

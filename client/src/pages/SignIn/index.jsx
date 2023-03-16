@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { Navigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { RequireAuth } from "../../services/requireAuth";
-import { Button, Container } from "./style";
+import { Button } from "../../components/Button";
+import { Container } from "./style";
 
 export function SingIn() {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -65,7 +66,7 @@ export function SingIn() {
                     {errors.name && <span className="error">Campo obrigatorio!</span>}
                 </section>
 
-                <Button>Enviar</Button>
+                <Button title="Logar" />
             </form>
         </Container>
     )
