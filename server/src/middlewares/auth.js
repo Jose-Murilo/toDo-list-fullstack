@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const { secret } = require('../configs/auth.json')
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
     const token = req.headers.authorization;
 
     if (!token) return res.status(401).json("Please inform your token");

@@ -12,7 +12,7 @@ router.post('/login', loginControllers.auth);
 
 router.get('/system', authMiddleware, async (req, res) => {
     const id = req.userID;
-    const user = await prisma.users.findUnique({where: {id: Number(id)}});
+    const user = await prisma.register.findUnique({where: {id: Number(id)}});
     res.json({
         system: true, 
         id,
