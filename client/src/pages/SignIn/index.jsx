@@ -8,44 +8,24 @@ import { Button } from "../../components/Button";
 import { Container } from "./style";
 
 export function SingIn() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const [token, setToken] = useState("");
-    
+    const { register, handleSubmit, formState: { errors } } = useForm();    
     const API = "http://localhost:3000/login"
 
     function onSubmit(data) {
         console.log(data);
-        if (!token) {
             async function fetchToken() {
                 const response = await axios.post(API, data)
                 
                 if (response.data.token) {
-                    const data = await response.data.token
-                    console.log(data);
-                    return setToken(data);
-                } else {
-                    console.log("Não tem");
-                    <Navigate to="/login"/>
-                }
-                
-            }
-            fetchToken()
-        } else {
-            async function useToken() {
-                const response = await axios.get('http://localhost:3000/system', {
-                    headers: {'authorization': `${token}`}
-                });
-
-                if (response.status === 200) {
-                    alert("AAA");
-                } else {
-                    alert("aa")
+                    const token = await response.data.token
+                    localStorage.setItem('token', token);
+                    console.log(token);
+                    alert("logado");
+                    <Navigate to="/"/>
                 }
             }
-            useToken();
-        }
-        
-        <Navigate to="/register"/>
+            fetchToken();
+            
     }
         
     return (
